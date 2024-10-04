@@ -1,0 +1,54 @@
+package com.example.assembler
+
+import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class TaskActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_task)
+
+
+
+        val num: TextView = findViewById(R.id.number)
+        val tasksTextView: TextView = findViewById(R.id.task)
+        val valuesListView: ListView = findViewById(R.id.values)
+
+        val dbHelper = DBhelper(this) // Убедитесь, что здесь правильное имя класса
+
+        // Получение всех задач
+        val tasks = dbHelper.getAllTasks()
+        val taskList = StringBuilder()
+        val taskIds = mutableListOf<Int>()
+
+        for (task in tasks) {
+            taskList.append("ID: ${task.first}, Задача: ${task.second}\n")
+            taskIds.add(task.first) // Сохраняем ID задач для дальнейшего использования
+        }
+
+        // Отображение задач в TextView
+        tasksTextView.text = taskList.toString()
+
+        // Получение значений для первой задачи (например, с ID = 1)
+        if (taskIds.isNotEmpty()) {
+            val values = dbHelper.getValuesForTask(taskIds[0]) // Получаем значения для первой задачи
+            val valuesAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, values)
+
+            // Установка адаптера для ListView
+            valuesListView.adapter = valuesAdapter
+
+        }
+    }
+
+
+
+
+
+}
