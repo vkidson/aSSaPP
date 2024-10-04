@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/task"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
@@ -34,7 +34,6 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/values"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number"
         tools:ignore="MissingConstraints" />

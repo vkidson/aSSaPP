@@ -25,7 +25,7 @@ class TaskList : AppCompatActivity() {
 
         taskList.setOnItemClickListener { _, _, i, _ ->
             idtheme = i + 1
-            Log.d("asd", "$idtheme")
+            //Log.d("asd", "$idtheme")
             val intent = Intent(this, TaskActivity::class.java)
             startActivity(intent)
 
