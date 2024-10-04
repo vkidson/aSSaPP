@@ -5,12 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2DBCAF"
     tools:context=".TheoryActivity">
 
     <ListView
         android:id="@+id/mainList"
-        android:layout_width="409dp"
-        android:layout_height="547dp"
+        android:layout_width="300dp"
+        android:layout_height="600dp"
+        android:background="#25677A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

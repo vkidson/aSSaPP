@@ -16,8 +16,8 @@
             android:name=".el_theory"
             android:exported="false" />
         <activity
-            android:name=".Theory_1"
-            android:exported="false" />
+            android:name=".TaskList"
+            android:exported="true"/>
         <activity
             android:name=".TheoryActivity"
             android:exported="false" />
