@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         start2.setOnClickListener {
-            val intent = Intent(this, TaskActivity::class.java)
+            val intent = Intent(this, TheoryActivity::class.java)
             startActivity(intent)
         }
 
