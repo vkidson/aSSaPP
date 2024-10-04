@@ -20,9 +20,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         val start : Button = findViewById(R.id.button)
+        val start2 : Button = findViewById(R.id.button2)
 
         start.setOnClickListener {
             val intent = Intent(this, TaskList::class.java)
+            startActivity(intent)
+        }
+
+        start2.setOnClickListener {
+            val intent = Intent(this, TheoryActivity::class.java)
             startActivity(intent)
         }
 
