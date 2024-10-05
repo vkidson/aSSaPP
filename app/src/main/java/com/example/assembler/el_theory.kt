@@ -34,6 +34,7 @@ class el_theory : AppCompatActivity() {
             5 -> "fifth.txt"
             else -> {finish()}
         }
+        //sad
         but_next.translationZ = 2f
         but_test.translationZ = 1f
         val inputStream = assets.open(filename.toString())
