@@ -5,14 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2DBCAF"
+    android:background="@drawable/fon"
     tools:context=".TaskList">
 
     <ListView
         android:id="@+id/tList"
         android:layout_width="300dp"
         android:layout_height="600dp"
-        android:background="#25677A"
+        android:background="#C94D8C97"
+        android:backgroundTint="#C94D8C97"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

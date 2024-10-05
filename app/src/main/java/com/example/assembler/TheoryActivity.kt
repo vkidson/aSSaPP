@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.assembler.MainActivity.Companion.idtheme
 import java.io.File
 
 class TheoryActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class TheoryActivity : AppCompatActivity() {
             when (position) {
                 0 -> {
                     // Открываем новую активность для "Введение в Assembler"
+                    idtheme = 1
                     val intent = Intent(this, el_theory::class.java)
                     startActivity(intent)
                 }

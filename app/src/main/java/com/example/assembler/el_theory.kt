@@ -1,18 +1,14 @@
 package com.example.assembler
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.motion.widget.Key.VISIBILITY
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.transition.Visibility
-import java.io.File
 
 class el_theory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +18,16 @@ class el_theory : AppCompatActivity() {
 
         val but_next : Button = findViewById(R.id.button_next)
         val but_back : Button = findViewById(R.id.button_back)
-
+        val but_test : Button = findViewById(R.id.button_to_test)
         val textView : TextView = findViewById(R.id.mainText)
+
+        but_next.translationZ = 2f
+        but_test.translationZ = 1f
 
         val inputStream = assets.open("first.txt")
         val text = inputStream.bufferedReader().use { it.readText() }
         textView.text = text
+        textView.movementMethod = ScrollingMovementMethod()
 
         // Разделение текста
         val parts = text.split(Regex("\\n\\s*\\n"), limit = 10) // Разделяем по первой новой строке
@@ -38,6 +38,14 @@ class el_theory : AppCompatActivity() {
             if (k < parts.size - 1) {
                 k +=1
                 textView.text = parts[k]
+            }
+            if (k == parts.size - 1) {
+                but_next.translationZ = 1f
+                but_test.translationZ = 2f
+                but_test.setBackgroundColor(Color.GREEN)
+
+                but_next.visibility = View.INVISIBLE
+                but_test.visibility = View.VISIBLE
             }
         }
         // Обработчик кнопки "Назад" (если нужно)
@@ -50,5 +58,11 @@ class el_theory : AppCompatActivity() {
                 finish()
             }
         }
+
+        but_test.setOnClickListener {
+            val intent = Intent(this, TaskActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
