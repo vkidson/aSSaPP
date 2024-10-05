@@ -1,10 +1,13 @@
 package com.example.assembler
 
+import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
@@ -25,6 +28,7 @@ class TaskActivity : AppCompatActivity() {
         val tasksTextView: TextView = findViewById(R.id.task)
         val valuesListView: ListView = findViewById(R.id.values)
         val bb : Button = findViewById(R.id.button_next_task)
+        val button_main_img : ImageButton = findViewById(R.id.button_main_img)
         bb.visibility = View.INVISIBLE
         val dbHelper = DBhelper(this) // Убедитесь, что здесь правильное имя класса
 
@@ -87,6 +91,11 @@ class TaskActivity : AppCompatActivity() {
             }
         }
 
+        button_main_img.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         /*if (flag == true) {
             bb.setOnClickListener {

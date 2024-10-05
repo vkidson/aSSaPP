@@ -1,16 +1,20 @@
 package com.example.assembler
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.assembler.MainActivity.Companion.idtheme
 
 class el_theory : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,11 +24,19 @@ class el_theory : AppCompatActivity() {
         val but_back : Button = findViewById(R.id.button_back)
         val but_test : Button = findViewById(R.id.button_to_test)
         val textView : TextView = findViewById(R.id.mainText)
+        val button_main : ImageButton = findViewById(R.id.button_main)
 
+        val filename = when (idtheme) {
+            1 -> "first.txt"
+            2 -> "second.txt"
+            3 -> "third.txt"
+            4 -> "fourth.txt"
+            5 -> "fifth.txt"
+            else -> {finish()}
+        }
         but_next.translationZ = 2f
         but_test.translationZ = 1f
-
-        val inputStream = assets.open("first.txt")
+        val inputStream = assets.open(filename.toString())
         val text = inputStream.bufferedReader().use { it.readText() }
         textView.text = text
         textView.movementMethod = ScrollingMovementMethod()
@@ -64,5 +76,10 @@ class el_theory : AppCompatActivity() {
             startActivity(intent)
         }
 
+        button_main.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

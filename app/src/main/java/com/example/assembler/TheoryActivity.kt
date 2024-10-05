@@ -4,13 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.assembler.MainActivity.Companion.idtheme
-import java.io.File
 
 class TheoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +17,8 @@ class TheoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_theory)
 
         val list: ListView = findViewById(R.id.mainList)
-        val items = listOf("Введение в Assembler", "Карта")
+        val items = listOf("Введение в Assembler", "Макросредства", "Внешние подпрограммы", "Сложные структуры данных", "Арифметический сопроцессор")
+        val button_main : Button = findViewById(R.id.button_main)
 
         val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         list.adapter = listAdapter
@@ -27,20 +26,36 @@ class TheoryActivity : AppCompatActivity() {
         list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             when (position) {
                 0 -> {
-                    // Открываем новую активность для "Введение в Assembler"
                     idtheme = 1
                     val intent = Intent(this, el_theory::class.java)
                     startActivity(intent)
                 }
-
                 1 -> {
-                    // Действия для "Следующий материал"
-                    // Вы можете добавить здесь другую активность или функционал
+                    idtheme = 2
+                    val intent = Intent(this, el_theory::class.java)
+                    startActivity(intent)
+                }
+                2 -> {
+                    idtheme = 3
+                    val intent = Intent(this, el_theory::class.java)
+                    startActivity(intent)
+                }
+                3 -> {
+                    idtheme = 4
+                    val intent = Intent(this, el_theory::class.java)
+                    startActivity(intent)
+                }
+                4 -> {
+                    idtheme = 5
+                    val intent = Intent(this, el_theory::class.java)
+                    startActivity(intent)
                 }
             }
-
-
-
+        }
+        button_main.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
