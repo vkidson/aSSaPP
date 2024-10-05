@@ -43,7 +43,7 @@ class el_theory : AppCompatActivity() {
         textView.movementMethod = ScrollingMovementMethod()
 
         // Разделение текста
-        val parts = text.split(Regex("\\n\\s*\\n"), limit = 10) // Разделяем по первой новой строке
+        val parts = text.split(Regex("\n\\s*\n\\s*\n"), limit = 10) // Разделяем по второй новой строкe
         var k = 0
         textView.text = parts[k] // Первая часть до новой строки
 
