@@ -3,6 +3,8 @@ package com.example.assembler
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -24,7 +26,7 @@ class el_theory : AppCompatActivity() {
         val but_back : Button = findViewById(R.id.button_back)
         val but_test : Button = findViewById(R.id.button_to_test)
         val textView : TextView = findViewById(R.id.mainText)
-        val button_main : ImageButton = findViewById(R.id.button_main)
+        val button_main : Button = findViewById(R.id.button_main)
 
         val filename = when (idtheme) {
             1 -> "first.txt"
@@ -50,6 +52,8 @@ class el_theory : AppCompatActivity() {
             if (k < parts.size - 1) {
                 k +=1
                 textView.text = parts[k]
+                textView.scrollTo(0,0)
+
             }
             if (k == parts.size - 1) {
                 but_next.translationZ = 1f
@@ -65,6 +69,14 @@ class el_theory : AppCompatActivity() {
             if (k != 0) {
                 k -= 1
                 textView.text = parts[k]
+                textView.scrollTo(0,0)
+
+                but_next.translationZ = 2f
+                but_test.translationZ = 1f
+                but_test.setBackgroundColor(Color.GREEN)
+
+                but_next.visibility = View.VISIBLE
+                but_test.visibility = View.GONE
             }
             else {
                 finish()
@@ -82,4 +94,5 @@ class el_theory : AppCompatActivity() {
             finish()
         }
     }
+
 }
