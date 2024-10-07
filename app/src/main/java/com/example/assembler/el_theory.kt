@@ -36,6 +36,7 @@ class el_theory : AppCompatActivity() {
             5 -> "fifth.txt"
             else -> {finish()}
         }
+        //sad
         but_next.translationZ = 2f
         but_test.translationZ = 1f
         val inputStream = assets.open(filename.toString())
@@ -44,7 +45,7 @@ class el_theory : AppCompatActivity() {
         textView.movementMethod = ScrollingMovementMethod()
 
         // Разделение текста
-        val parts = text.split(Regex("\\n\\s*\\n"), limit = 10) // Разделяем по первой новой строке
+        val parts = text.split(Regex("\n\\s*\n\\s*\n"), limit = 10) // Разделяем по второй новой строкe
         var k = 0
         textView.text = parts[k] // Первая часть до новой строки
 
