@@ -24,7 +24,7 @@ class TaskActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_task)
 
-        var minus : Int = 3
+        var minus : Int = 0
 
         val num: TextView = findViewById(R.id.number)
         val tasksTextView: TextView = findViewById(R.id.task)
@@ -89,21 +89,50 @@ class TaskActivity : AppCompatActivity() {
                 // Установка адаптера для ListView
                 valuesListView.adapter = valuesAdapter
 
-                if (idtask == taskIds.size - 1) {
+                if (idtask == taskIds.size) {
                     idtask = 1
+                    Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
             }
             else {
-                minus -= 1
+                minus += 1
 
-                if (minus == 0) {
-                    Toast.makeText(this, "ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_SHORT).show()
+                fl.clear()
+                valu.clear()
+                taskList.clear()
+                taskIds.clear()
+                idtask += 1
+                for (task in tasks) {
+                    taskList.add("${task.second}\n")
+                    taskIds.add(task.first)
+                    Log.d("asd", "$taskList")
+                }
+
+                // Получение значений для первой задачи (например, с ID = 1)
+                num.text = idtask.toString()
+                tasksTextView.text = taskList[idtask-1].toString()
+                val values = dbHelper.getValuesForTask(taskIds[idtask-1]) // Получаем значения для первой задачи
+                for (value in values) {
+                    valu.add(value.second)
+                    fl.add(value.first)
+                }
+                val valuesAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, valu)
+
+                // Установка адаптера для ListView
+                valuesListView.adapter = valuesAdapter
+
+                if (idtask == taskIds.size) {
+                    idtask = 1
+                    Toast.makeText(this, "Тест пройден. Ты совершил $minus ошибку(-и)", Toast.LENGTH_LONG).show()
+                    finish()
+                }
+
+                if (minus >= 3) {
+                    Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, el_theory::class.java)
                     startActivity(intent)
                     finish()
-                }
-                else {
-                    Toast.makeText(this, "Ответ неверный! Можно еще совершить $minus ошибки(-у)", Toast.LENGTH_SHORT).show()
                 }
 
 
