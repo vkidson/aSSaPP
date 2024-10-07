@@ -35,7 +35,7 @@ class TaskActivity : AppCompatActivity() {
         val dbHelper = DBhelper(this) // Убедитесь, что здесь правильное имя класса
 
         // Получение всех задач
-        Log.d("qwe", "$idtheme")
+        //Log.d("qwe", "$idtheme")
         val tasks = dbHelper.getAllTasks()
         val taskList = mutableListOf<String>()
         val taskIds = mutableListOf<Int>()
@@ -46,7 +46,7 @@ class TaskActivity : AppCompatActivity() {
         for (task in tasks) {
             taskList.add("${task.second}\n")
             taskIds.add(task.first)
-            Log.d("asd", "$taskList")
+            //Log.d("asd", "$taskList")
         }
 
         // Получение значений для первой задачи (например, с ID = 1)
@@ -63,17 +63,24 @@ class TaskActivity : AppCompatActivity() {
         valuesListView.adapter = valuesAdapter
 
         valuesListView.setOnItemClickListener { _, _, i, _ ->
-
+            Log.d("asd", "${taskIds.size} $idtask")
             if (i == fl.indexOf(1)) {
                 fl.clear()
                 valu.clear()
                 taskList.clear()
                 taskIds.clear()
                 idtask += 1
+
+                if (idtask == taskIds.size) {
+                    idtask = 1
+                    Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+
                 for (task in tasks) {
                     taskList.add("${task.second}\n")
                     taskIds.add(task.first)
-                    Log.d("asd", "$taskList")
+                    //Log.d("asd", "$taskList")
                 }
 
                 // Получение значений для первой задачи (например, с ID = 1)
@@ -89,11 +96,7 @@ class TaskActivity : AppCompatActivity() {
                 // Установка адаптера для ListView
                 valuesListView.adapter = valuesAdapter
 
-                if (idtask == taskIds.size) {
-                    idtask = 1
-                    Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
+
             }
             else {
                 minus += 1
@@ -103,10 +106,11 @@ class TaskActivity : AppCompatActivity() {
                 taskList.clear()
                 taskIds.clear()
                 idtask += 1
+
                 for (task in tasks) {
                     taskList.add("${task.second}\n")
                     taskIds.add(task.first)
-                    Log.d("asd", "$taskList")
+                    //Log.d("asd", "$taskList")
                 }
 
                 // Получение значений для первой задачи (например, с ID = 1)
@@ -124,16 +128,25 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
+
+                    if (minus >= 3) {
+                        idtask = 1
+                        Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, el_theory::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                     Toast.makeText(this, "Тест пройден. Ты совершил $minus ошибку(-и)", Toast.LENGTH_LONG).show()
                     finish()
                 }
-
+/*
                 if (minus >= 3) {
+                    idtask = 1
                     Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, el_theory::class.java)
                     startActivity(intent)
                     finish()
-                }
+                }*/
 
 
 

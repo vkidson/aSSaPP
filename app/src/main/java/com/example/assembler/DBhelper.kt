@@ -7,7 +7,7 @@ import android.util.Log
 import com.example.assembler.MainActivity.Companion.idtheme
 
 class DBhelper(val context: Context) :
-    SQLiteOpenHelper(context, "base", null ,28) {
+    SQLiteOpenHelper(context, "base", null ,31) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query1 = "CREATE TABLE task (id INT PRIMARY KEY, task TEXT, theme INT)"
         val query2 = "CREATE TABLE task_values (task_id INT, theme INT, value TEXT, f INT, FOREIGN KEY(task_id) REFERENCES task(id))"
@@ -33,6 +33,7 @@ class DBhelper(val context: Context) :
                 "'  ...  \n'" +
                 "' MOV   X, Y\n', 1)"
         val insertTask9 = "INSERT INTO task (id, task, theme) VALUES (9, 'MOV [BX][BP], AX', 1)"
+        val insertTask10 = "INSERT INTO task (id, task, theme) VALUES (10, '', 1)"
         db!!.execSQL(insertTask1)
         db!!.execSQL(insertTask2)
         db!!.execSQL(insertTask3)
@@ -42,6 +43,7 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertTask7)
         db!!.execSQL(insertTask8)
         db!!.execSQL(insertTask9)
+        db!!.execSQL(insertTask10)
 
         // ОТВЕТЫ НА ВОПРОСЫ 1 ТЕМА
         val insertValue1_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (1, 1,'Компиляторы', 0)"
@@ -116,6 +118,14 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue9_2)
         db!!.execSQL(insertValue9_3)
         db!!.execSQL(insertValue9_4)
+        val insertValue10_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (10, 1,'', 0)"
+        val insertValue10_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (10, 1,'', 0)"
+        val insertValue10_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (10, 1,'', 0)"
+        val insertValue10_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (10, 1,'', 0)"
+        db!!.execSQL(insertValue10_1)
+        db!!.execSQL(insertValue10_2)
+        db!!.execSQL(insertValue10_3)
+        db!!.execSQL(insertValue10_4)
 
 
         //ВОПРОСЫ 2 ТЕМА
@@ -129,6 +139,7 @@ class DBhelper(val context: Context) :
         val insertTask2_8 = "INSERT INTO task (id, task, theme) VALUES (18, 'Что происходит при вызове подпрограммы с помощью команды CALL?', 2)"
         val insertTask2_9 = "INSERT INTO task (id, task, theme) VALUES (19, 'Что такое макрорасширение?', 2)"
         val insertTask2_10 = "INSERT INTO task (id, task, theme) VALUES (20, 'На какие группы можно разделить псевдокоманды ассемблера для задания макроопределений?', 2)"
+        val insertTask2_11 = "INSERT INTO task (id, task, theme) VALUES (21, '', 2)"
 
         db!!.execSQL(insertTask21)
         db!!.execSQL(insertTask2_2)
@@ -140,6 +151,7 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertTask2_8)
         db!!.execSQL(insertTask2_9)
         db!!.execSQL(insertTask2_10)
+        db!!.execSQL(insertTask2_11)
 
         //ОТВЕТЫ НА ВОПРОСЫ 2 ТЕМА
         val insertValue2_1_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (11, 2,'Выполнять команду один раз', 0)"
@@ -259,6 +271,15 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue2_10_3)
         db!!.execSQL(insertValue2_10_4)
         db!!.execSQL(insertValue2_10_5)
+
+        val insertValue2_11_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
+        val insertValue2_11_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
+        val insertValue2_11_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
+        val insertValue2_11_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
+        db!!.execSQL(insertValue2_11_1)
+        db!!.execSQL(insertValue2_11_2)
+        db!!.execSQL(insertValue2_11_3)
+        db!!.execSQL(insertValue2_11_4)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
