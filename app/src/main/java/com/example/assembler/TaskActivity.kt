@@ -89,7 +89,7 @@ class TaskActivity : AppCompatActivity() {
                 // Установка адаптера для ListView
                 valuesListView.adapter = valuesAdapter
 
-                if (idtask == taskIds.size) {
+                if (idtask == taskIds.size + 1) {
                     idtask = 1
                     Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
                     finish()
@@ -122,20 +122,18 @@ class TaskActivity : AppCompatActivity() {
                 // Установка адаптера для ListView
                 valuesListView.adapter = valuesAdapter
 
-                if (idtask == taskIds.size) {
+                if (idtask == taskIds.size + 1) {
                     idtask = 1
+                    if (minus >= 3) {
+                        Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
+                        idtask = 1
+                        val intent = Intent(this, el_theory::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                     Toast.makeText(this, "Тест пройден. Ты совершил $minus ошибку(-и)", Toast.LENGTH_LONG).show()
                     finish()
                 }
-
-                if (minus >= 3) {
-                    Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this, el_theory::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-
-
 
             }
 

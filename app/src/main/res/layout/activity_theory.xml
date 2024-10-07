@@ -5,15 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon"
+    android:background="@drawable/fonp1"
     tools:context=".TheoryActivity">
 
     <ListView
         android:id="@+id/mainList"
+        style="@style/Widget.AppCompat.ListView.DropDown"
         android:layout_width="299dp"
         android:layout_height="523dp"
-        android:background="#C94D8C97"
-        android:backgroundTint="#C94D8C97"
+        android:background="#000000"
+        android:backgroundTint="#00FFFFFF"
+        android:cacheColorHint="#000000"
+        android:textColor="#0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +27,23 @@
         android:layout_width="129dp"
         android:layout_height="42dp"
         android:text="На главную"
+        android:elevation="6dp"
+        android:stateListAnimator="@null"
+        android:translationZ="4dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#cdcebf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="90dp"
+        android:layout_height="179dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

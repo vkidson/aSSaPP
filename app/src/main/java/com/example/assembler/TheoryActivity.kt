@@ -2,6 +2,7 @@ package com.example.assembler
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -17,9 +18,9 @@ class TheoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_theory)
 
         val list: ListView = findViewById(R.id.mainList)
+        list.foregroundGravity = Gravity.CENTER_VERTICAL
         val items = listOf("Введение в Assembler", "Макросредства", "Внешние подпрограммы", "Сложные структуры данных", "Арифметический сопроцессор")
         val button_main : Button = findViewById(R.id.button_main)
-
         val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         list.adapter = listAdapter
 
