@@ -7,6 +7,7 @@ import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -27,7 +28,7 @@ class el_theory : AppCompatActivity() {
         val but_test : Button = findViewById(R.id.button_to_test)
         val textView : TextView = findViewById(R.id.mainText)
         val button_main : Button = findViewById(R.id.button_main)
-
+        textView.gravity = Gravity.CENTER_VERTICAL
         val filename = when (idtheme) {
             1 -> "first.txt"
             2 -> "second.txt"
@@ -36,6 +37,7 @@ class el_theory : AppCompatActivity() {
             5 -> "fifth.txt"
             else -> {finish()}
         }
+        //sad
         but_next.translationZ = 2f
         but_test.translationZ = 1f
         val inputStream = assets.open(filename.toString())
@@ -44,7 +46,7 @@ class el_theory : AppCompatActivity() {
         textView.movementMethod = ScrollingMovementMethod()
 
         // Разделение текста
-        val parts = text.split(Regex("\\n\\s*\\n"), limit = 10) // Разделяем по первой новой строке
+        val parts = text.split(Regex("\n\\s*\n\\s*\n"), limit = 20) // Разделяем по второй новой строкe
         var k = 0
         textView.text = parts[k] // Первая часть до новой строки
 
