@@ -7,7 +7,7 @@ import android.util.Log
 import com.example.assembler.MainActivity.Companion.idtheme
 
 class DBhelper(val context: Context) :
-    SQLiteOpenHelper(context, "base", null ,31) {
+    SQLiteOpenHelper(context, "base", null ,36) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query1 = "CREATE TABLE task (id INT PRIMARY KEY, task TEXT, theme INT)"
         val query2 = "CREATE TABLE task_values (task_id INT, theme INT, value TEXT, f INT, FOREIGN KEY(task_id) REFERENCES task(id))"
@@ -62,10 +62,10 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue2_2)
         db!!.execSQL(insertValue2_3)
         db!!.execSQL(insertValue2_4)
-        val insertValue3_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический адрес — это адрес, который используется для обращения к памяти, физический — это реальный адрес в памяти.', 1)"
-        val insertValue3_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический адрес — это адрес в регистре, физический — это адрес в ОЗУ.  ', 0)"
-        val insertValue3_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический адрес — это адрес, заданный пользователем, физический — адрес, определяемый устройствами.', 0)"
-        val insertValue3_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический адрес и физический адрес — это одно и то же понятие.  ', 0)"
+        val insertValue3_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический адрес для обращения к памяти, физический — реальный адрес в памяти.', 1)"
+        val insertValue3_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический — это адрес в регистре, физический — адрес в ОЗУ.  ', 0)"
+        val insertValue3_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический — задается пользователем, физический — определяется устройствами.', 0)"
+        val insertValue3_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (3, 1,'Логический и физический адреса — это одно и то же понятие.  ', 0)"
         db!!.execSQL(insertValue3_1)
         db!!.execSQL(insertValue3_2)
         db!!.execSQL(insertValue3_3)
@@ -272,10 +272,10 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue2_10_4)
         db!!.execSQL(insertValue2_10_5)
 
-        val insertValue2_11_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
-        val insertValue2_11_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
-        val insertValue2_11_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
-        val insertValue2_11_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 1,'', 0)"
+        val insertValue2_11_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 2,'', 0)"
+        val insertValue2_11_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 2,'', 0)"
+        val insertValue2_11_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 2,'', 0)"
+        val insertValue2_11_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (21, 2,'', 0)"
         db!!.execSQL(insertValue2_11_1)
         db!!.execSQL(insertValue2_11_2)
         db!!.execSQL(insertValue2_11_3)
