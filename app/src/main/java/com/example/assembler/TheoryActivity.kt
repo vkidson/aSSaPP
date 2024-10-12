@@ -23,9 +23,8 @@ class TheoryActivity : AppCompatActivity() {
         val textview3 : TextView = findViewById(R.id.textView3)
         val textview4 : TextView = findViewById(R.id.textView4)
         val textview5 : TextView = findViewById(R.id.textView5)
-        val items = listOf("Введение в Assembler", "Макросредства", "Внешние подпрограммы", "Сложные структуры данных", "Арифметический сопроцессор")
+        val textview7 : TextView = findViewById(R.id.textView7)
         val button_main : Button = findViewById(R.id.button_main)
-        val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
 
         textview1.setOnClickListener {
             idtheme = 1
@@ -53,6 +52,12 @@ class TheoryActivity : AppCompatActivity() {
 
         textview5.setOnClickListener {
             idtheme = 5
+            val intent = Intent(this, el_theory::class.java)
+            startActivity(intent)
+        }
+
+        textview7.setOnClickListener {
+            idtheme = 7
             val intent = Intent(this, el_theory::class.java)
             startActivity(intent)
         }

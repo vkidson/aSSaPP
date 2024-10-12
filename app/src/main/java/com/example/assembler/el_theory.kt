@@ -35,6 +35,7 @@ class el_theory : AppCompatActivity() {
             3 -> "third.txt"
             4 -> "fourth.txt"
             5 -> "fifth.txt"
+            7 -> "comands.txt"
             else -> {finish()}
         }
         //sad

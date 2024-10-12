@@ -123,14 +123,14 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
                         startActivity(intent)
                         finish()
                     }
-                    if (minus == 1 || minus == 2) {
+                    if (minus == 1 || minus == 2 || minus == 3) {
                         idtask = 1
                         Toast.makeText(this, "Тест пройден. Кол-во ошибок: $minus.", Toast.LENGTH_LONG).show()
                         finish()
@@ -183,7 +183,7 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
@@ -241,14 +241,14 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
                         startActivity(intent)
                         finish()
                     }
-                    if (minus == 1 || minus == 2) {
+                    if (minus == 1 || minus == 2 || minus == 3) {
                         idtask = 1
                         Toast.makeText(this, "Тест пройден. Кол-во ошибок: $minus.", Toast.LENGTH_LONG).show()
                         finish()
@@ -304,7 +304,7 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
@@ -361,14 +361,14 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
                         startActivity(intent)
                         finish()
                     }
-                    if (minus == 1 || minus == 2) {
+                    if (minus == 1 || minus == 2 || minus == 3) {
                         idtask = 1
                         Toast.makeText(this, "Тест пройден. Кол-во ошибок $minus.", Toast.LENGTH_LONG).show()
                         finish()
@@ -423,7 +423,7 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
@@ -480,14 +480,14 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
                         startActivity(intent)
                         finish()
                     }
-                    if (minus == 1 || minus == 2) {
+                    if (minus == 1 || minus == 2 || minus == 3) {
                         idtask = 1
                         Toast.makeText(this, "Тест пройден. Кол-во ошибок: $minus.", Toast.LENGTH_LONG).show()
                         finish()
@@ -542,7 +542,7 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
@@ -599,14 +599,14 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus! ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
                         startActivity(intent)
                         finish()
                     }
-                    if (minus == 1 || minus == 2) {
+                    if (minus == 1 || minus == 2 || minus == 3) {
                         idtask = 1
                         Toast.makeText(this, "Тест пройден. Кол-во ошибок $minus.", Toast.LENGTH_LONG).show()
                         finish()
@@ -661,7 +661,7 @@ class TaskActivity : AppCompatActivity() {
 
                 if (idtask == taskIds.size) {
                     idtask = 1
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок, их $minus!. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
@@ -750,7 +750,7 @@ class TaskActivity : AppCompatActivity() {
                 if (idtask == taskIds.size) {
                     idtask = 1
 
-                    if (minus >= 3) {
+                    if (minus > 3) {
                         idtask = 1
                         Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, el_theory::class.java)
@@ -761,7 +761,7 @@ class TaskActivity : AppCompatActivity() {
                     finish()
                 }
 *//*
-                if (minus >= 3) {
+                if (minus > 3) {
                     idtask = 1
                     Toast.makeText(this, "У тебя более 3-х ошибок. ЧИТАЙ ТЕОРИЮ!!!", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, el_theory::class.java)
