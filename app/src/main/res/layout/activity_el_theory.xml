@@ -8,24 +8,27 @@
     android:background="@drawable/fonp1"
     tools:context=".el_theory">
 
-    <TextView
-        android:id="@+id/mainText"
-        android:layout_width="318dp"
-        android:layout_height="570dp"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="outsideInset"
-        android:scrollbars="vertical"
-        android:text="TextView"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        android:textStyle="normal"
-        android:verticalScrollbarPosition="right"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="318dp"
+            android:layout_height="570dp"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="vertical"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:verticalScrollbarPosition="right"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.316" />
+
 
     <Button
         android:id="@+id/button_back"

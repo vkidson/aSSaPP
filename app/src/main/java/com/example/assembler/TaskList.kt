@@ -28,6 +28,7 @@ class TaskList : AppCompatActivity() {
         val text3 : TextView = findViewById(R.id.textView3)
         val text4 : TextView = findViewById(R.id.textView4)
         val text5 : TextView = findViewById(R.id.textView5)
+        val textc : TextView = findViewById(R.id.textViewCom)
 
         text1.setOnClickListener {
             idtheme = 1
@@ -59,6 +60,13 @@ class TaskList : AppCompatActivity() {
             val intent = Intent(this, TaskActivity::class.java)
             startActivity(intent)
         }
+        textc.setOnClickListener {
+            idtheme = 6
+            //Log.d("asd", "$idtheme")
+            val intent = Intent(this, TaskActivity::class.java)
+            startActivity(intent)
+        }
+
 
         // Установка адаптера для ListView
 

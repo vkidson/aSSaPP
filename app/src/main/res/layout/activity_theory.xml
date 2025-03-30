@@ -44,28 +44,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.492" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="310dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="180dp"
-        android:background="@drawable/round_corners"
-        android:elevation="6dp"
-        android:gravity="center_vertical"
-        android:stateListAnimator="@null"
-        android:text="Внешние подпрограммы"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:translationZ="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
+        app:layout_constraintVertical_bias="0.456" />
 
     <TextView
         android:id="@+id/textView1"
@@ -87,28 +66,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.424" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="310dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/round_corners"
-        android:elevation="6dp"
-        android:gravity="center_vertical"
-        android:stateListAnimator="@null"
-        android:text="Сложные структуры данных"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:translationZ="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.583" />
+        app:layout_constraintVertical_bias="0.383" />
 
     <TextView
         android:id="@+id/textView5"
@@ -129,7 +87,49 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618" />
+        app:layout_constraintVertical_bias="0.592" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/round_corners"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:stateListAnimator="@null"
+        android:text="Сложные структуры данных"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/round_corners"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:stateListAnimator="@null"
+        android:text="Внешние подпрограммы"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
 
     <TextView
         android:id="@+id/textView6"
@@ -147,6 +147,72 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.001" />
+
+    <TextView
+        android:id="@+id/textCom1"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_corners"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:stateListAnimator="@null"
+        android:text="Основные псевдокоманды процессора"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="4dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
+
+    <TextView
+        android:id="@+id/textCom3"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_corners"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:stateListAnimator="@null"
+        android:text="Команды ариф. сопроцессора"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="4dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
+
+    <TextView
+        android:id="@+id/textCom2"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_corners"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
+        android:stateListAnimator="@null"
+        android:text="Операции ассемблера"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:translationZ="4dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

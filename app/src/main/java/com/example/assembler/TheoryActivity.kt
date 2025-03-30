@@ -3,7 +3,6 @@ package com.example.assembler
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
@@ -23,6 +22,11 @@ class TheoryActivity : AppCompatActivity() {
         val textview3 : TextView = findViewById(R.id.textView3)
         val textview4 : TextView = findViewById(R.id.textView4)
         val textview5 : TextView = findViewById(R.id.textView5)
+        val textCom1 : TextView = findViewById(R.id.textCom1)
+        val textCom2 : TextView = findViewById(R.id.textCom3)
+        val textCom3 : TextView = findViewById(R.id.textCom2)
+
+
         val items = listOf("Введение в Assembler", "Макросредства", "Внешние подпрограммы", "Сложные структуры данных", "Арифметический сопроцессор")
         val button_main : Button = findViewById(R.id.button_main)
         val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
@@ -56,6 +60,26 @@ class TheoryActivity : AppCompatActivity() {
             val intent = Intent(this, el_theory::class.java)
             startActivity(intent)
         }
+
+        textCom1.setOnClickListener {
+            idtheme = 11
+            val intent = Intent(this, el_theory::class.java)
+            startActivity(intent)
+        }
+
+        textCom2.setOnClickListener {
+            idtheme = 22
+            val intent = Intent(this, el_theory::class.java)
+            startActivity(intent)
+        }
+
+        textCom3.setOnClickListener {
+            idtheme = 33
+            val intent = Intent(this, el_theory::class.java)
+            startActivity(intent)
+        }
+
+
 
         button_main.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
