@@ -2,19 +2,21 @@ package com.example.assembler
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.BlurMaskFilter
 import android.graphics.Color
-import android.graphics.LinearGradient
-import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assembler.MainActivity.Companion.idtheme
+import com.google.android.material.appbar.AppBarLayout.LayoutParams.ScrollEffect
+
 
 class el_theory : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -28,6 +30,8 @@ class el_theory : AppCompatActivity() {
         val but_test : Button = findViewById(R.id.button_to_test)
         val textView : TextView = findViewById(R.id.mainText)
         val button_main : Button = findViewById(R.id.button_main)
+
+
         textView.gravity = Gravity.CENTER_VERTICAL
         val filename = when (idtheme) {
             1 -> "first.txt"
@@ -35,6 +39,9 @@ class el_theory : AppCompatActivity() {
             3 -> "third.txt"
             4 -> "fourth.txt"
             5 -> "fifth.txt"
+            11 -> "comOnetxt"
+            22 -> "comTwo.txt"
+            33 -> "comThree.txt"
             else -> {finish()}
         }
         //sad
@@ -44,10 +51,20 @@ class el_theory : AppCompatActivity() {
         val text = inputStream.bufferedReader().use { it.readText() }
         textView.text = text
         textView.movementMethod = ScrollingMovementMethod()
+        /*textView.setLayerType(View.LAYER_TYPE_SOFTWARE, null)
+        val radius: Float = textView.getTextSize() / 3
+        val filter = BlurMaskFilter(radius, BlurMaskFilter.Blur.NORMAL)
+        textView.getPaint().setMaskFilter(filter)*/
+
+
+
 
         // Разделение текста
         val parts = text.split(Regex("\n\\s*\n\\s*\n"), limit = 20) // Разделяем по второй новой строкe
         var k = 0
+        if (parts.size == 1) {
+            but_next.visibility = View.INVISIBLE
+        }
         textView.text = parts[k] // Первая часть до новой строки
 
         but_next.setOnClickListener {
