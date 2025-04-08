@@ -3,6 +3,7 @@ package com.example.assembler
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val start : Button = findViewById(R.id.button)
         val start2 : Button = findViewById(R.id.button2)
+        val debug : ImageButton = findViewById(R.id.debug)
 
         start.setOnClickListener {
             val intent = Intent(this, TaskList::class.java)
@@ -32,11 +34,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        debug.setOnClickListener {
+            val intent = Intent(this, Code::class.java)
+            startActivity(intent)
+        }
+
     }
     companion object {
         @JvmStatic
         fun newInstance() = MainActivity()
-        var idtheme : Int = 1
+        var idtheme : Int = 0
         var idtask : Int = 1
     }
 }

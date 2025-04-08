@@ -1,5 +1,6 @@
 package com.example.assembler
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -7,13 +8,29 @@ import android.util.Log
 import com.example.assembler.MainActivity.Companion.idtheme
 
 class DBhelper(val context: Context) :
-    SQLiteOpenHelper(context, "base", null ,48) {
+    SQLiteOpenHelper(context, "base", null ,54) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query1 = "CREATE TABLE task (id INT PRIMARY KEY, task TEXT, theme INT)"
         val query2 =
             "CREATE TABLE task_values (task_id INT, theme INT, value TEXT, f INT, FOREIGN KEY(task_id) REFERENCES task(id))"
+        val query3 = "CREATE TABLE done (id INT PRIMARY KEY, value INT)"
         db!!.execSQL(query1)
         db!!.execSQL(query2)
+        db!!.execSQL(query3)
+
+        //ТАБЛИЦА ДЛЯ ГАЛОК
+       /* val insertDone1 = "INSERT INTO done (id, value) VALUES (1, 0)"
+        val insertDone2 = "INSERT INTO done (id, value) VALUES (2, 0)"
+        val insertDone3 = "INSERT INTO done (id, value) VALUES (3, 0)"
+        val insertDone4 = "INSERT INTO done (id, value) VALUES (4, 0)"
+        val insertDone5 = "INSERT INTO done (id, value) VALUES (5, 0)"
+        val insertDone6 = "INSERT INTO done (id, value) VALUES (6, 0)"
+        db!!.execSQL(insertDone1)
+        db!!.execSQL(insertDone2)
+        db!!.execSQL(insertDone3)
+        db!!.execSQL(insertDone4)
+        db!!.execSQL(insertDone5)
+        db!!.execSQL(insertDone6)*/
 
         // ВОПРОСЫ 1 ТЕМА
         val insertTask1 = "INSERT INTO task (id, task, theme) VALUES (1, 'Какие системные программы используются при разработке и отладке программ на языке ассемблера?', 1)"
@@ -1039,6 +1056,7 @@ class DBhelper(val context: Context) :
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
         db!!.execSQL("DROP TABLE IF EXISTS task")
         db!!.execSQL("DROP TABLE IF EXISTS task_values")
+        db!!.execSQL("DROP TABLE IF EXISTS done")
         onCreate(db)
     }
 
@@ -1078,6 +1096,39 @@ class DBhelper(val context: Context) :
         cursor.close()
         db.close()
         return values
+    }
+
+    fun getDone(id: Int): Int {
+        var dones : Int = 0
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT value FROM done WHERE id = ?", arrayOf(id.toString()))
+
+        if (cursor.moveToFirst()) {
+            do {
+                //val id = cursor.getInt(0)
+                val value = cursor.getInt(0)
+                dones = value
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return dones
+    }
+
+    fun setDone() {
+        val values = ContentValues()
+        values.put("id", idtheme)
+        values.put("value", 1)
+
+        val db1 = this.writableDatabase
+        db1.insert("done", null, values)
+        db1.close()
+
+
+        //val db = this.readableDatabase
+       // val cursor = db.rawQuery("INSERT INTO done(id, value) VALUES ('$idtheme', 1)", null)
+       // cursor.close()
+       // db.close()
     }
 
 

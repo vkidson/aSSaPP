@@ -145,6 +145,7 @@
         android:layout_height="55dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/round_corners"
+        android:backgroundTint="#cdcebf"
         android:elevation="6dp"
         android:gravity="center_vertical"
         android:shadowColor="#000000"

@@ -47,7 +47,7 @@ class TaskActivity : AppCompatActivity() {
         val bb : Button = findViewById(R.id.button_next_task)
         val button_main : Button = findViewById(R.id.button_to_main)
         bb.visibility = View.INVISIBLE
-        val dbHelper = DBhelper(this) // Убедитесь, что здесь правильное имя класса
+        val dbHelper = DBhelper(this)
 
         val text1 : TextView = findViewById(R.id.textView1)
         val text2 : TextView = findViewById(R.id.textView2)
@@ -169,12 +169,14 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 1 || minus == 2 || minus == 3) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
                         }
                         idtask = 1
                         Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                        dbHelper.setDone()
                         val intent = Intent(this, TaskList::class.java)
                         startActivity(intent)
                         finish()
@@ -253,6 +255,7 @@ class TaskActivity : AppCompatActivity() {
                         }
                         else {
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -333,6 +336,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 1 || minus == 2 || minus == 3) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -340,6 +344,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 0) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -419,6 +424,7 @@ class TaskActivity : AppCompatActivity() {
                         }
                         else {
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -498,6 +504,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 1 || minus == 2 || minus == 3) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -505,6 +512,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 0) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -584,6 +592,7 @@ class TaskActivity : AppCompatActivity() {
                         }
                         else {
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -663,6 +672,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 1 || minus == 2 || minus == 3) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -670,6 +680,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 0) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -749,6 +760,7 @@ class TaskActivity : AppCompatActivity() {
                         }
                         else {
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -828,6 +840,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 1 || minus == 2 || minus == 3) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -835,6 +848,7 @@ class TaskActivity : AppCompatActivity() {
                         if (minus == 0) {
                             idtask = 1
                             Toast.makeText(this, "Тест пройден без ошибок!", Toast.LENGTH_SHORT).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
@@ -914,6 +928,7 @@ class TaskActivity : AppCompatActivity() {
                         }
                         else {
                             Toast.makeText(this, "Тест пройден. Кол-во ошибок: $k.", Toast.LENGTH_LONG).show()
+                            dbHelper.setDone()
                             val intent = Intent(this, TaskList::class.java)
                             startActivity(intent)
                             finish()
