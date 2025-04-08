@@ -46,10 +46,12 @@
 
     <ImageButton
         android:id="@+id/debug"
-        android:layout_width="113dp"
+        android:layout_width="100dp"
         android:layout_height="88dp"
         android:background="#00FFFFFF"
         android:scaleType="centerCrop"
+        android:scaleX="1.77"
+        android:scaleY="1.77"
         android:stateListAnimator="@null"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
