@@ -8,7 +8,7 @@ import android.util.Log
 import com.example.assembler.MainActivity.Companion.idtheme
 
 class DBhelper(val context: Context) :
-    SQLiteOpenHelper(context, "base", null ,54) {
+    SQLiteOpenHelper(context, "base", null ,57) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query1 = "CREATE TABLE task (id INT PRIMARY KEY, task TEXT, theme INT)"
         val query2 =
@@ -65,7 +65,7 @@ class DBhelper(val context: Context) :
 
         // ОТВЕТЫ НА ВОПРОСЫ 1 ТЕМА
         val insertValue1_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (1, 1,'Компиляторы', 0)"
-        val insertValue1_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (1, 1,'Дебаггеры', 1)"
+        val insertValue1_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (1, 1,'Отладчики', 1)"
         val insertValue1_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (1, 1,'Интерпретаторы', 0)"
         val insertValue1_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (1, 1,'Операционные системы', 0)"
         db!!.execSQL(insertValue1_1)
@@ -96,10 +96,10 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue4_2)
         db!!.execSQL(insertValue4_3)
         db!!.execSQL(insertValue4_4)
-        val insertValue5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Имя, тип, размер', 0)"
-        val insertValue5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Имя, значение, адрес', 1)"
-        val insertValue5_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Тип, вид, код', 0)"
-        val insertValue5_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Имя, значение, версия', 0)"
+        val insertValue5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Имя, тип, сегмент', 0)"
+        val insertValue5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Сегмент, смещение, тип', 1)"
+        val insertValue5_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Тип, смещение, адрес', 0)"
+        val insertValue5_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (5, 1,'Имя, значение, адрес', 0)"
         db!!.execSQL(insertValue5_1)
         db!!.execSQL(insertValue5_2)
         db!!.execSQL(insertValue5_3)
@@ -112,8 +112,8 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue6_2)
         db!!.execSQL(insertValue6_3)
         db!!.execSQL(insertValue6_4)
-        val insertValue7_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (7, 1,'Неинициализированная переменная', 1)"
-        val insertValue7_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (7, 1,'Неверный тип', 0)"
+        val insertValue7_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (7, 1,'Неинициализированная переменная', 0)"
+        val insertValue7_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (7, 1,'Неверный тип операндов', 1)"
         val insertValue7_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (7, 1,'Ошибка синтаксиса', 0)"
         val insertValue7_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (7, 1,'Нет доступа к памяти', 0)"
         db!!.execSQL(insertValue7_1)
@@ -121,9 +121,9 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue7_3)
         db!!.execSQL(insertValue7_4)
         val insertValue8_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (8, 1,'Смешение типов', 0)"
-        val insertValue8_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (8, 1,'X не инициализирован', 1)"
+        val insertValue8_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (8, 1,'X не инициализирован', 0)"
         val insertValue8_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (8, 1,'Неверный тип', 0)"
-        val insertValue8_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (8, 1,'Нет разрешения', 0)"
+        val insertValue8_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (8, 1,'Такое невозможно', 1)"
         db!!.execSQL(insertValue8_1)
         db!!.execSQL(insertValue8_2)
         db!!.execSQL(insertValue8_3)
@@ -185,7 +185,7 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue2_1_5)
 
         val insertValue2_2_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (12, 2,'Увеличение вероятности ошибки', 0)"
-        val insertValue2_2_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (12, 2,'Уменьшение времени отладки', 1)"
+        val insertValue2_2_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (12, 2,'Уменьшение времени выполнения', 1)"
         val insertValue2_2_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (12, 2,'Увеличение дублирующих усилий программистов', 0)"
         val insertValue2_2_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (12, 2,'Повышение сложности программы', 0)"
 
@@ -303,8 +303,8 @@ class DBhelper(val context: Context) :
         val insertTask3_1 = "INSERT INTO task (id, task, theme) VALUES (22, 'Каким образом происходит подключение внешней функции в исполняемом файле', 3)"
         val insertTask3_2 = "INSERT INTO task (id, task, theme) VALUES (23, 'Каковы способы передачи параметров разных типов', 3)"
         val insertTask3_3 = "INSERT INTO task (id, task, theme) VALUES (24, 'Каковы достоинства и недостатки способа передачи параметров подпрограммы через стек', 3)"
-        val insertTask3_4 = "INSERT INTO task (id, task, theme) VALUES (25, 'Как возможно реализовать доступ к параметрам подпрограммы без применения регистра bp', 3)"
-        val insertTask3_5 = "INSERT INTO task (id, task, theme) VALUES (26, 'Как можно выполнить выход из подпрограммы с удалением ее параметров из стека, не используя параметры в команде ret', 3)"
+        val insertTask3_4 = "INSERT INTO task (id, task, theme) VALUES (25, 'Какие регистры обязательно должны сохраняться при выходе из внешней подпрограммы? ', 3)"
+        val insertTask3_5 = "INSERT INTO task (id, task, theme) VALUES (26, 'Как возвращаются значения из функций в C++ (например, двойное слово)?', 3)"
         val insertTask3_6 = "INSERT INTO task (id, task, theme) VALUES (27, 'Что такое рекурсивные подпрограммы?', 3)"
         val insertTask3_7 = "INSERT INTO task (id, task, theme) VALUES (28, 'Для чего используется параметр-значение в подпрограмме?', 3)"
         val insertTask3_8 = "INSERT INTO task (id, task, theme) VALUES (29, 'Для чего используется параметр-ссылка в подпрограмме?', 3)"
@@ -351,19 +351,19 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue3_3_3)
         db!!.execSQL(insertValue3_3_4)
 
-        val insertValue3_4_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'Использовать фиксированные адреса параметров', 1)"
-        val insertValue3_4_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'Использовать регистры х86', 0)"
-        val insertValue3_4_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'Использовать только локальные переменные', 0)"
-        val insertValue3_4_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'Никак', 0)"
+        val insertValue3_4_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'AX, BX, CX, DX', 0)"
+        val insertValue3_4_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'BP, SP, SS, DS', 1)"
+        val insertValue3_4_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'SI, DI', 0)"
+        val insertValue3_4_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (25, 3,'Все регистры можно изменять', 0)"
         db!!.execSQL(insertValue3_4_1)
         db!!.execSQL(insertValue3_4_2)
         db!!.execSQL(insertValue3_4_3)
         db!!.execSQL(insertValue3_4_4)
 
-        val insertValue3_5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'Использовать команду pop для удаления параметров', 1)"
-        val insertValue3_5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'Использовать команду leave после выполнения', 0)"
-        val insertValue3_5_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'Использовать команду xor для очистки стека', 0)"
-        val insertValue3_5_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'Использовать команду add для изменения указателя стека', 0)"
+        val insertValue3_5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'В регистре AL', 0)"
+        val insertValue3_5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'В регистре AX', 0)"
+        val insertValue3_5_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'В паре регистров AX:DX', 1)"
+        val insertValue3_5_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (26, 3,'В сегменте данных', 0)"
         db!!.execSQL(insertValue3_5_1)
         db!!.execSQL(insertValue3_5_2)
         db!!.execSQL(insertValue3_5_3)
@@ -440,7 +440,7 @@ class DBhelper(val context: Context) :
 
         //ОТВЕТЫ 4 ТЕМА
         val insertValue4_1_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (32, 4,'Множество реализуется через массив с фиксированным размером', 0)"
-        val insertValue4_1_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (32, 4,'Множество - последовательность битов, где каждый бит соответствует элементу', 1)"
+        val insertValue4_1_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (32, 4,'Множество - последовательность битов, где каждый бит соответствует элементу мн-ва', 1)"
         val insertValue4_1_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (32, 4,'Множество реализуется с использованием стека', 0)"
         val insertValue4_1_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (32, 4,'Множество невозможно реализовать на ассемблере', 0)"
         db!!.execSQL(insertValue4_1_1)
@@ -475,8 +475,8 @@ class DBhelper(val context: Context) :
         db!!.execSQL(insertValue4_4_3)
         db!!.execSQL(insertValue4_4_4)
 
-        val insertValue4_5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (36, 4,'Создает экземпляр данных сразу', 0)"
-        val insertValue4_5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (36, 4,'Оформляется под сегмент данных', 1)"
+        val insertValue4_5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (36, 4,'Создает экземпляр данных STRUC', 0)"
+        val insertValue4_5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (36, 4,'Объявляется шаблон с использованием псевдокоманд STRUC и ENDS', 1)"
         val insertValue4_5_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (36, 4,'Не требует объявления полей', 0)"
         val insertValue4_5_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (36, 4,'Не содержит определение полей', 0)"
         db!!.execSQL(insertValue4_5_1)
@@ -593,12 +593,14 @@ class DBhelper(val context: Context) :
 
         val insertValue5_4_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (46, 5,'FLOAD', 0)"
         val insertValue5_4_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (46, 5,'FADD', 0)"
-        val insertValue5_4_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (46, 5,'FSQRT', 1)"
+        val insertValue5_4_3 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (46, 5,'FSQRT', 0)"
         val insertValue5_4_4 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (46, 5,'FMUL', 0)"
+        val insertValue5_4_5 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (46, 5,'Все команды сопроцессора (кроме управления)', 1)"
         db!!.execSQL(insertValue5_4_1)
         db!!.execSQL(insertValue5_4_2)
         db!!.execSQL(insertValue5_4_3)
         db!!.execSQL(insertValue5_4_4)
+        db!!.execSQL(insertValue5_4_5)
 
         val insertValue5_5_1 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (47, 5,'PC', 0)"
         val insertValue5_5_2 = "INSERT INTO task_values (task_id, theme, value, f) VALUES (47, 5,'IC', 0)"
@@ -1123,12 +1125,6 @@ class DBhelper(val context: Context) :
         val db1 = this.writableDatabase
         db1.insert("done", null, values)
         db1.close()
-
-
-        //val db = this.readableDatabase
-       // val cursor = db.rawQuery("INSERT INTO done(id, value) VALUES ('$idtheme', 1)", null)
-       // cursor.close()
-       // db.close()
     }
 
 

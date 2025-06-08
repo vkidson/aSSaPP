@@ -22,9 +22,6 @@ class TaskList : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_task_list)
 
-        //val taskList : ListView = findViewById(R.id.tList)
-        //val items = listOf("Введение в ассемблер", "Макрокоманды", "Внешние подпрограммы", "Сложные структуры данных", "Арифметический сопроцессор")
-       // val tla = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         val button_main : Button = findViewById(R.id.button_main)
         val text1 : TextView = findViewById(R.id.textView1)
         val text2 : TextView = findViewById(R.id.textView2)

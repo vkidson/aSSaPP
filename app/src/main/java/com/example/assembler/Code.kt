@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -23,6 +24,16 @@ class Code : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val builder = AlertDialog.Builder(this)
+            .setTitle("Справка")
+            .setMessage("Список доступных команд: mov, add, div, mul, sub."+ '\n' + "Регистр символов не важен." + '\n' + "Для начала анализа необходимо нажать на кнопку 'Пуск'." + '\n' + '\n' + "<команда>_операнд1,операнд2." + '\n' + "Для корректного анализа рекомендуется следовать такой структуре.")
+            .setPositiveButton("Продолжить") { dialog, which ->
+            }
+
+        val dialog = builder.create()
+        dialog.show()
+
 
         val button_main : Button = findViewById(R.id.button_to_main)
         val start : Button = findViewById(R.id.start)
@@ -64,8 +75,6 @@ class Code : AppCompatActivity() {
             "CX" to cxValue,
             "DX" to dxValue
         )
-
-        // Карта для хранения флагов
         val flags = mutableMapOf(
             "CF" to cfValue,
             "ZF" to zfValue,
@@ -78,13 +87,14 @@ class Code : AppCompatActivity() {
         )
 
         start.setOnClickListener {
-            // Получение содержимого textBox
             val commands = textBox.text.split("\n")
 
 
             for (command in commands) {
                 var parts = command.split(' ', ',')
-
+                if (parts [2] == " ") {
+                    Toast.makeText(this, "Ошибка!", Toast.LENGTH_SHORT).show()
+                }
                 if (parts[0].toLowerCase() == "mov") {
                     if (parts[2] != "ax" && parts[2] != "bx" && parts[2] != "cx" && parts[2] != "dx") {
                         registers[parts[1].toUpperCase()] = parts[2]
@@ -123,10 +133,11 @@ class Code : AppCompatActivity() {
                 }
 
                 if (parts[0].toLowerCase() == "div") {
-                    val operand1 = registers[parts[1].toUpperCase()]?.toInt(16)!!
-                    val operand2 = registers[parts[2].toUpperCase()]?.toInt(16)!!
+                    val operand1 = registers["AX"]?.toInt(16)!!
+                    val operand2 = registers[parts[1].toUpperCase()]?.toInt(16)!!
                     val result = operand1 / operand2
-                    registers[parts[1].toUpperCase()] = (operand1 / operand2).toString(16)
+                    registers["AX"] = (operand1 / operand2).toString(16)
+                    registers["DX"] = (operand1 % operand2).toString(16)
 
                     flags["CF"] = if (result < 0) "1" else "0"
                     flags["ZF"] = if (result and 0xFFFF == 0) "1" else "0"

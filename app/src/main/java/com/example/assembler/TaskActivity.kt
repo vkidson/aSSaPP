@@ -34,6 +34,9 @@ class TaskActivity : AppCompatActivity() {
         setContentView(R.layout.activity_task)
         
         var minus : Int = 0
+        if (idtheme == 11 || idtheme == 22 || idtheme == 33) {
+            idtheme = 6
+        }
         if (idtheme == 6) {
             minus = -4
         }
