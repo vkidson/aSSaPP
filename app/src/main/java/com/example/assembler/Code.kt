@@ -92,8 +92,11 @@ class Code : AppCompatActivity() {
 
             for (command in commands) {
                 var parts = command.split(' ', ',')
-                if (parts [2] == " ") {
-                    Toast.makeText(this, "Ошибка!", Toast.LENGTH_SHORT).show()
+                for (part in parts) {
+                    if (part == " ") {
+                        Toast.makeText(this,"Ошибка!", Toast.LENGTH_SHORT).show()
+                        break;
+                    }
                 }
                 if (parts[0].toLowerCase() == "mov") {
                     if (parts[2] != "ax" && parts[2] != "bx" && parts[2] != "cx" && parts[2] != "dx") {
@@ -129,21 +132,23 @@ class Code : AppCompatActivity() {
                     flags["SF"] = if (result and 0x8000 != 0) "1" else "0"
                     flags["OF"] = if (((operand1 xor result) and (operand2 xor result)) and 0x8000 != 0) "1" else "0"
                     flags["PF"] = if (Integer.bitCount(result and 0xFFFF) % 2 == 0) "1" else "0"
-
                 }
 
                 if (parts[0].toLowerCase() == "div") {
+
                     val operand1 = registers["AX"]?.toInt(16)!!
                     val operand2 = registers[parts[1].toUpperCase()]?.toInt(16)!!
                     val result = operand1 / operand2
                     registers["AX"] = (operand1 / operand2).toString(16)
                     registers["DX"] = (operand1 % operand2).toString(16)
 
+
                     flags["CF"] = if (result < 0) "1" else "0"
                     flags["ZF"] = if (result and 0xFFFF == 0) "1" else "0"
                     flags["SF"] = if (result and 0x8000 != 0) "1" else "0"
                     flags["OF"] = if (result > 0xFFFF) "1" else "0"
                     flags["PF"] = if (Integer.bitCount(result and 0xFFFF) % 2 == 0) "1" else "0"
+
 
                 }
 
@@ -160,7 +165,6 @@ class Code : AppCompatActivity() {
                     flags["PF"] = if (Integer.bitCount(result and 0xFFFF) % 2 == 0) "1" else "0"
 
                 }
-
                 ax.text = "0000"
                 bx.text = "0000"
                 cx.text = "0000"
